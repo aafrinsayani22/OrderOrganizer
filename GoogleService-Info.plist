@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>55541123796-o2qrscd81ug62ujusc5fku1puc5rrvvt.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.55541123796-o2qrscd81ug62ujusc5fku1puc5rrvvt</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCmFnJDS86deVJjmr8LMdjwd5Ddcf7jtBg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>55541123796</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>sayani.aafrin.OrderOrganizer</string>
+	<key>PROJECT_ID</key>
+	<string>orderorganizer-fcdc5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>orderorganizer-fcdc5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:55541123796:ios:8f3046d0b10a67a8e18941</string>
+</dict>
+</plist>
