@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct MenuView: View {
-  
+struct NewMenuView: View {
+
   @ObservedObject var model = ViewModel()
-  @EnvironmentObject var order: Order
+//  @EnvironmentObject var cart: Cart
+//  @EnvironmentObject var order: Order
+//  let item: Dish
   var body: some View {
     
     NavigationView {
@@ -19,9 +21,10 @@ struct MenuView: View {
         Section(header: Text("Food").font(.system(size: 19, weight: .black))) {
           ForEach(model.items) { item in
             if item.group == "Food" {
-              
-              DishRow(dish: item)
-              
+              NavigationLink(destination: ItemDetail(item: item)) {
+                DishRow(dish: item)
+              }
+             
             }
           }
          
@@ -29,7 +32,10 @@ struct MenuView: View {
         Section(header: Text("Drinks").font(.system(size: 19, weight: .black))) {
           ForEach(model.items) { item in
             if item.group == "Drinks" {
-              DishRow(dish: item)
+              NavigationLink(destination: ItemDetail(item: item)) {
+                DishRow(dish: item)
+              }
+//              DishRow(dish: item)
             }
           }
           
@@ -37,7 +43,10 @@ struct MenuView: View {
         Section(header: Text("Dessert").font(.system(size: 19, weight: .black))) {
           ForEach(model.items) { item in
             if item.group == "Dessert" {
-              DishRow(dish: item)
+              NavigationLink(destination: ItemDetail(item: item)) {
+                DishRow(dish: item)
+              }
+//              DishRow(dish: item)
             }
           }
         }
@@ -48,7 +57,7 @@ struct MenuView: View {
         ToolbarItem {
           Button {
             // Add to the database
-//            order.add(item: item)
+//            cart.add(item: item)
           } label: {
             Image(systemName: "cart")
               .font(.system(size: 20, weight: .light))
@@ -61,12 +70,13 @@ struct MenuView: View {
   init() {
     model.getMenuData()
   }
+ 
 
 }
 
-struct Menu_View_Previews: PreviewProvider {
+struct Menu_Previews: PreviewProvider {
   static var previews: some View {
-    MenuView()
-      .environmentObject(Order())
+    NewMenuView()
+//      .environmentObject(Cart())
   }
 }

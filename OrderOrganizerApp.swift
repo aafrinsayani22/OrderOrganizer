@@ -22,13 +22,16 @@ struct YourApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
   
-//  @StateObject var order = Order()
+//  @StateObject var cart = Cart()
+  @StateObject var order = Order()
 
   var body: some Scene {
     WindowGroup {
       NavigationView {
+//        ContentView()
+//          .environmentObject(cart)
         ContentView()
-//          .environmentObject(order)
+          .environmentObject(Order())
       }
     }
   }

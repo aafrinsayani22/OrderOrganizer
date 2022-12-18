@@ -38,7 +38,8 @@ struct TerraceView: View {
             .sheet(
               isPresented: $addingNewOrder,
 //              content: MenuView.init
-              content: MenuView.init
+//              content: MenuView.init
+              content: NewMenuView.init
               
             )
             .accentColor(.black)

@@ -24,12 +24,17 @@
 //  }
 //}
 import Foundation
-class Dish: ObservableObject,Identifiable {
+class Dish: ObservableObject,Identifiable,Equatable {
+  static func == (lhs: Dish, rhs: Dish) -> Bool {
+    lhs === rhs
+  }
+  
+  
   var id: String
   var name: String
   var price: Float
   var group: String
-  var isAdded: Bool = false
+//  var isAdded: Bool = false
   @Published var quantity: Int
   
   init(id: String = "0", name: String = "Chocolate Mousse", price: Float = 10.0, group: String = "Dessert", quantity: Int = 1) {

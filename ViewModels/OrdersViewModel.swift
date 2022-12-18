@@ -17,6 +17,7 @@ class ViewModel: ObservableObject {
   @Published var cartItems : [Cart] = []
   @Published var items = [Dish]()
   
+  
 //  func addData(items: [Dish]){
 //
 //    // Get a reference to the database
@@ -71,14 +72,15 @@ class ViewModel: ObservableObject {
     }
   }
   
-  func addToCart(name: String, quantity: Int) {
+  func addToCart(Items: [Dish]) {
     
 
     // Get a reference to the database
     let db = Firestore.firestore()
     
     // Add a document to a collection
-    db.collection("Cart").addDocument(data: ["Item": name, "Quantity": quantity]) { error in
+//    cart.items.append(dish)
+    db.collection("Cart").addDocument(data: ["Items": Items]) { error in
         
         // Check for errors
         if error == nil {
@@ -159,6 +161,7 @@ class ViewModel: ObservableObject {
       }
     }
   }
+  
   
   func getTerraceTableData() {
     

@@ -14,11 +14,21 @@ import Foundation
 //    var item: Dish
 //  var quantity: Int = 0
 //}
-struct Cart: Identifiable {
+class Cart: Identifiable, ObservableObject {
+//  var id: String = ""
+  @Published var items = [Dish]()
+
+//  var name: String
+//  @Published var quantity: Int
   
-  var id: String
-  var name: String
-  var quantity: Int
+  func add(item: Dish) {
+      items.append(item)
+  }
   
-  
+//  init(items: [Dish] = [Dish()], id: String) {
+//    self.items = items
+////    self.id = id
+////    self.name = name
+////    self.quantity = quantity
+//  }
 }

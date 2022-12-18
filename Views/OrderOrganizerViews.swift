@@ -14,6 +14,7 @@ private var gridItemLayout = [GridItem(.adaptive(minimum: 100),spacing: 20)]
 struct DishRow: View {
 
   var dish: Dish
+
   
   var body: some View {
     HStack{
@@ -29,7 +30,8 @@ struct DishRow: View {
       }
       .lineLimit(2)
       Spacer()
-      QuantityButton(dish: .init(name: dish.name, price: dish.price, group: dish.group, quantity: dish.quantity))
+     
+      QuantityButton(dish: .init(name: dish.name, price: dish.price, group: dish.group, quantity: dish.quantity), cart: .init())
         .buttonStyle(BorderlessButtonStyle())
         .font(.system(size: 15, design: .rounded))
       
@@ -41,8 +43,9 @@ struct DishRow: View {
 struct QuantityButton: View {
   @ObservedObject var model = ViewModel()
   @ObservedObject var dish: Dish
-//var items: [Dish]
-//  @Published var items = [Dish]()
+//  var items: [Dish]
+  @EnvironmentObject var cart: Cart
+//  var items : [Dish]
   @State var addingNewDish = false
   var body: some View {
       Button {
@@ -64,10 +67,11 @@ struct QuantityButton: View {
 
 
       Button {
-        dish.quantity += 1
-//        items.append(dish)
-        model.addToCart(name: dish.name, quantity: dish.quantity)
         
+        dish.quantity += 1
+//        cart.add(item: dish)
+//        cart.items.append(dish)
+        model.addToCart(Items: cart.items)
         
       } label: {
         Image(systemName: "plus")
@@ -103,6 +107,7 @@ struct OrderOrganizerViews_Previews: PreviewProvider {
     VStack {
       TableView(text: "T", i: 1)
       DishRow(dish: .init(id: "jkh", name: "Fish", price: 12, group: "Food", quantity: 1))
+        .environmentObject(Order())
     }
   }
 }
