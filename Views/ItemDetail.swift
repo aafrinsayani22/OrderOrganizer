@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemDetail: View {
     @EnvironmentObject var order: Order
+  @ObservedObject var model = ViewModel()
     let item: Dish
 
     var body: some View {
@@ -17,7 +18,7 @@ struct ItemDetail: View {
 //                Image(item.mainImage)
 //                    .resizable()
 //                    .scaledToFit()
-
+         
 //                Text("Photo: \(item.photoCredit)")
 //                    .padding(4)
 //                    .background(Color.black)
@@ -32,7 +33,12 @@ struct ItemDetail: View {
 
             Button("Order This") {
                 order.add(item: item)
+//              model.addToCart(Items: order.items)
+              print(order.items[0])
+              
+              
             }
+          
             .font(.headline)
 
             Spacer()

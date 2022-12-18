@@ -71,7 +71,7 @@ struct QuantityButton: View {
         dish.quantity += 1
 //        cart.add(item: dish)
 //        cart.items.append(dish)
-        model.addToCart(Items: cart.items)
+//        model.addToCart(Items: cart.items)
         
       } label: {
         Image(systemName: "plus")

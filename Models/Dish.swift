@@ -25,6 +25,7 @@
 //}
 import Foundation
 class Dish: ObservableObject,Identifiable,Equatable {
+  
   static func == (lhs: Dish, rhs: Dish) -> Bool {
     lhs === rhs
   }

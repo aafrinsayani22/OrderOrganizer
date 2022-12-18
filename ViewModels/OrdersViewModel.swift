@@ -151,7 +151,7 @@ class ViewModel: ObservableObject {
               //Create a table for each document returned
               return Dish(id: d.documentID,
                           name: d["name"] as? String ?? "no dish",
-                          price: d["price"] as? Float ?? 0.00,
+                          price: d["price"] as? Float ?? 0,
                           group: d["group"] as? String ?? "no group",
                           quantity: 0)
               

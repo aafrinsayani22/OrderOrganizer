@@ -30,7 +30,7 @@ struct YourApp: App {
       NavigationView {
 //        ContentView()
 //          .environmentObject(cart)
-        ContentView()
+        MainView()
           .environmentObject(Order())
       }
     }
