@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Terrace: View {
+struct FloorView: View {
   
   @ObservedObject var model = ViewModel()
   @State var addingNewOrder = false
@@ -19,7 +19,7 @@ struct Terrace: View {
       ScrollView {
         LazyVGrid(columns: gridItemLayout, alignment: .center, spacing: 20) {
           
-          ForEach(model.Terracetables) { table in
+          ForEach(model.Floortables) { table in
             
             Button {
               addingNewOrder = true
@@ -45,17 +45,17 @@ struct Terrace: View {
         }
         .padding(.all, 10)
       }
-      .navigationTitle("Terrace")
+      .navigationTitle("Floor")
     }
   }
   
   init() {
-    model.getTerraceTableData()
+    model.getFloorTableData()
   }
 }
 
 struct Terrace_Previews: PreviewProvider {
   static var previews: some View {
-    TerraceView()
+    FloorView()
   }
 }

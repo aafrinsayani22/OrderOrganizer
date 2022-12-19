@@ -14,6 +14,7 @@ class ViewModel: ObservableObject {
   
   @Published var Terracetables = [Table]()
   @Published var Gardentables = [Table]()
+  @Published var Floortables = [Table]()
   @Published var cartItems : [Cart] = []
   @Published var items = [Dish]()
   
@@ -169,7 +170,7 @@ class ViewModel: ObservableObject {
     let db = Firestore.firestore()
     
     //Read the document at a specific path
-    db.collection("tables").getDocuments { snapshot, error in
+    db.collection("terrace").getDocuments { snapshot, error in
       // check for errors
       if error == nil {
         // no errors
@@ -194,5 +195,38 @@ class ViewModel: ObservableObject {
       }
     }
   }
+  
+  func getFloorTableData() {
+    
+    // Get a reference to the database
+    let db = Firestore.firestore()
+    
+    //Read the document at a specific path
+    db.collection("floor1").getDocuments { snapshot, error in
+      // check for errors
+      if error == nil {
+        // no errors
+        if let snapshot = snapshot {
+          
+          // update the tables property in the main thread
+          DispatchQueue.main.async {
+            
+            // get all the documents and create tables
+            self.Floortables =  snapshot.documents.map { d in
+              
+              //Create a table for each document returned
+              return Table(id:  d.documentID,
+                           name: d["name"] as? String ?? "no table",
+                           status: d["status"] as? Bool ?? true)
+              
+              
+            }
+            
+          }
+        }
+      }
+    }
+  }
+  
 }
 

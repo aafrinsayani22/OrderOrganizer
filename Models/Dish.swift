@@ -24,6 +24,7 @@
 //  }
 //}
 import Foundation
+import UIKit
 class Dish: ObservableObject,Identifiable,Equatable {
   
   static func == (lhs: Dish, rhs: Dish) -> Bool {
@@ -35,15 +36,19 @@ class Dish: ObservableObject,Identifiable,Equatable {
   var name: String
   var price: Float
   var group: String
-//  var isAdded: Bool = false
+  var image: String
+  var isAdded: Bool
+  
   @Published var quantity: Int
   
-  init(id: String = "0", name: String = "Chocolate Mousse", price: Float = 10.0, group: String = "Dessert", quantity: Int = 1) {
+  init(id: String = "0", name: String = "Chocolate Mousse", price: Float = 10.0, group: String = "Dessert", quantity: Int = 1, image: String = "", isAdded: Bool = false) {
       self.id = id
       self.name = name
       self.price = price
       self.group = group
       self.quantity = quantity
+      self.image = image
+      self.isAdded = isAdded
     }
   }
 
